@@ -1,0 +1,198 @@
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ===== INDEX PAGE STYLES ===== */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 20px;
+}
+
+.gif-container {
+    margin-bottom: 30px;
+}
+
+.gif-container img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 32px;
+    color: #ff1493;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* ===== BUTTONS ===== */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+.btn-yes {
+    background-color: #ff69b4;
+    color: white;
+}
+
+.btn-yes:hover {
+    background-color: #ff1493;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+}
+
+.btn-no {
+    background-color: #cccccc;
+    color: #333;
+    position: relative;
+}
+
+.btn-no:hover {
+    background-color: #aaaaaa;
+}
+
+/* ===== YES PAGE STYLES ===== */
+body.yes-page {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ff69b4 100%);
+    animation: backgroundPulse 3s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.1);
+    }
+}
+
+.yes-container {
+    text-align: center;
+    font-size: 72px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* ===== CONFETTI & BALLOONS ===== */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #ff69b4;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.balloon {
+    position: fixed;
+    width: 30px;
+    height: 40px;
+    border-radius: 50% 50% 50% 0;
+    pointer-events: none;
+    animation: float linear infinite, sway 3s ease-in-out infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.balloon-red {
+    background-color: #ff1493;
+    transform: rotate(45deg);
+}
+
+.balloon-pink {
+    background-color: #ff69b4;
+    transform: rotate(45deg);
+}
+
+.balloon-white {
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-100vh) rotate(45deg);
+    }
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(0) rotate(45deg);
+    }
+    50% {
+        transform: translateX(50px) rotate(45deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+    .yes-container {
+        font-size: 48px;
+    }
+}
